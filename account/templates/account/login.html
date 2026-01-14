@@ -1,0 +1,27 @@
+{% extends 'account/form_parent.html' %}
+
+{% block title %}
+Вход
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="text-center mb-4">Вход</h2>
+    
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.user_email }}
+        {{ form.user_password }}
+        <span>{{error}}</span>
+        <button type="submit" class="btn btn-primary w-100">Войти</button>
+    </form>
+
+    <div class="mt-3 text-center">
+        <p>Еще не зарегистрированы?</p>
+        <a href="{% url 'registration' %}">
+            <button type="button" class="btn btn-primary w-100" >Регистрация</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'account/form_parent.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="text-center mb-4">Главная страница</h2>
+    
+    <a href="{% url 'profile' %}">
+        <button type="button" class="btn btn-primary w-100" >Измениь профиль</button>
+    </a>
+    <form method="post">
+        {% csrf_token %}
+        {{form.element_name}}
+        <span>{{error}}</span>
+        <button type="submit" class="btn btn-primary w-100" >Получить доступ</button>
+    </form>
+    <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-warning w-100" >Выход</button>
+    </a>
+</div>
+{% endblock %}

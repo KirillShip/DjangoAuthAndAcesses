@@ -1,0 +1,22 @@
+{% extends 'account/form_parent.html' %}
+
+{% block title %}
+Админ
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="text-center mb-4">Панель Администратора</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{element_form.element_name}}
+        {{role_form.role_name}}
+        {{permission_form}}
+        <span>{{error}}</span>
+        <button type="submit" class="btn btn-primary w-100">Применить</button>
+    </form>
+    <a href="{% url 'logout' %}">
+        <button type="button" class="btn btn-warning w-100" >Выход</button>
+    </a>
+</div>
+{% endblock %}

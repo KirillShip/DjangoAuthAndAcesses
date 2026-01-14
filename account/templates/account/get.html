@@ -1,0 +1,28 @@
+{% extends 'account/form_parent.html' %}
+
+{% block title %}
+Доступ
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2 class="text-center mb-4">Страница доступа</h2>
+    <h4>Получен доступ к {{element_name}}</h4>
+    <h4>Разрешено:</h4>
+    {% if read_permission == True %}
+        <h4>Чтение</h4>
+    {% endif %}
+    {% if create_permission == True %}
+        <h4>Создание</h4>
+    {% endif %}
+    {% if update_permission == True %}
+        <h4>Обновление</h4>
+    {% endif %}
+    {% if delete_permission == True %}
+        <h4>Удаление</h4>
+    {% endif %}
+    <a href="{% url 'main' %}">
+        <button type="button" class="btn btn-warning w-100" >Назад</button>
+    </a>
+</div>
+{% endblock %}
